@@ -1,5 +1,6 @@
 class PolyTreeNode
 
+
     attr_reader :value, :parent, :children
 
     def initialize(value)
@@ -30,9 +31,11 @@ class PolyTreeNode
     end
 
     def dfs(target)
-
+        return self if self == target
+        
     end
 
 
   
 end
+
