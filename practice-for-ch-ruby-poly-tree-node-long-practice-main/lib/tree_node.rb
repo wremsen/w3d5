@@ -21,8 +21,16 @@ class PolyTreeNode
         end
     end
 
-    def add_child
-        # parent=(self)
+    def add_child(child)
+        child.parent=(self)
+    end
+
+    def remove_child(child)
+        child.parent=(nil)
+    end
+
+    def dfs(target)
+
     end
 
 
