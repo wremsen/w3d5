@@ -3,6 +3,8 @@ class PolyTreeNode
 
     attr_reader :value, :parent, :children
 
+    # comment for git check
+
     def initialize(value)
         @value = value
         @parent = nil
