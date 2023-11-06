@@ -61,16 +61,19 @@ class KnightPathFinder
                 queue << new_node
             end
         end
+    end
 
+    def find_path(end_pos)
+        end_pos_node = self.root_node.dfs(end_pos)
+    end
+
+    def trace_path_back(node)
+        return [node.value] if node.parent == nil
+
+        trace_path_back(node.parent) + [node.value]
     end
 
     
-
-
-
-
-
-
 
 
 
