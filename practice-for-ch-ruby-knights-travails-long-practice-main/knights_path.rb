@@ -8,39 +8,6 @@ class KnightPathFinder
 
         row = pos[0]
         col = pos[1]
-
-            if spaces.include?(row + 2) && spaces.include?(col + 1)
-                moves << [row + 2, col + 1]
-            end
-            if spaces.include?(row + 2) && spaces.include?(col - 1)
-                moves << [row + 2, col - 1]
-            end
-
-            if spaces.include?(row - 2) && spaces.include?(col + 1)
-                moves << [row - 2, col + 1]
-            end
-            if spaces.include?(row + 2) && spaces.include?(col - 1)
-                moves << [row - 2, col - 1]
-            end
-
-            if spaces.include?(row - 2) && spaces.include?(col + 1)
-                moves << [row + 1, col - 2]
-            end
-            if spaces.include?(row + 2) && spaces.include?(col - 1)
-                moves << [row - 1, col - 2]
-            end
-
-            if spaces.include?(row - 2) && spaces.include?(col + 1)
-                moves << [row + 1, col + 2]
-            end
-            if spaces.include?(row + 2) && spaces.include?(col - 1)
-                moves << [row - 1, col + 2]
-            end
-
-
-
-
-            
     end
 
     attr_reader :root_node
@@ -54,10 +21,8 @@ class KnightPathFinder
     end
 
     def new_move_positions(pos)
-        if KnightPathFinder.valid_moves(pos) == true && !@considered_positions.include?(pos)
-            @considered_positions << pos
-        end
-
+        moves = KnightPathFinder.valid_moves(pos)
+        moves.reject { |ele| @considered_positions.include?(ele) }
     end
 
 
