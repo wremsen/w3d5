@@ -2,8 +2,45 @@ require_relative '../practice-for-ch-ruby-poly-tree-node-long-practice-main/lib/
 
 class KnightPathFinder
 
-    def self.valid_moves(pos)
+    def valid_moves(pos)
+        moves = []
+        spaces = [0, 1, 2, 3, 4, 5, 6, 7]
 
+        row = pos[0]
+        col = pos[1]
+
+            if spaces.include?(row + 2) && spaces.include?(col + 1)
+                moves << [row + 2, col + 1]
+            end
+            if spaces.include?(row + 2) && spaces.include?(col - 1)
+                moves << [row + 2, col - 1]
+            end
+
+            if spaces.include?(row - 2) && spaces.include?(col + 1)
+                moves << [row - 2, col + 1]
+            end
+            if spaces.include?(row + 2) && spaces.include?(col - 1)
+                moves << [row - 2, col - 1]
+            end
+
+            if spaces.include?(row - 2) && spaces.include?(col + 1)
+                moves << [row + 1, col - 2]
+            end
+            if spaces.include?(row + 2) && spaces.include?(col - 1)
+                moves << [row - 1, col - 2]
+            end
+
+            if spaces.include?(row - 2) && spaces.include?(col + 1)
+                moves << [row + 1, col + 2]
+            end
+            if spaces.include?(row + 2) && spaces.include?(col - 1)
+                moves << [row - 1, col + 2]
+            end
+
+
+
+
+            
     end
 
     attr_reader :root_node
@@ -20,6 +57,7 @@ class KnightPathFinder
         if KnightPathFinder.valid_moves(pos) == true && !@considered_positions.include?(pos)
             @considered_positions << pos
         end
+
     end
 
 
