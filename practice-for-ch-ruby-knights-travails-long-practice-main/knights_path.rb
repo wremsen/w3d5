@@ -36,7 +36,7 @@ class KnightPathFinder
 
     def new_move_positions(pos)
         moves = KnightPathFinder.valid_moves(pos)
-        moves.reject { |ele| @considered_positions.include?(ele) }
+        moves.reject! { |ele| @considered_positions.include?(ele) }
 
         moves.each do |ele|
             @considered_positions << ele
@@ -54,7 +54,7 @@ class KnightPathFinder
         until queue.empty?
             node = queue.shift
 
-            moves = node.new_move_positions(node.value)
+            moves = new_move_positions(node.value)
             moves.each do |ele|
                 new_node = PolyTreeNode.new(ele)
                 new_node.parent=(node)
